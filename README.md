@@ -44,7 +44,7 @@ Some of the libraries used for this project include:
 
 ```bash
 # Clone the repo
-git clone https://github.com/BrentKilbasco/nodejs-restful-api.git
+git clone https://github.com/BrentKilbasco/nodejs-rest-api
 
 # Install dependencies
 npm install
