@@ -8,7 +8,7 @@ This project is a RESTful API for a mock luxury car rental service, built with N
 
 Customers can create an account, log in and out, browse through cars by style/brand/name, view their own profile and their full user history of rentals, and can request to rent a specific car. 
 
-Employees can view and create new brands, styles, cars, and can process rental records, updating them and setting them as processed and returned. Manager have a few extra permissions such as deleting rental records and viewing a full employee list.
+Employees can view and create new brands, styles, cars, and can process rental records, updating them and setting them as processed and returned. Managers have a few extra permissions such as deleting rental records and viewing a full employee list.
 
 Authentication and authorization for Customers, Employees, and Managers is handled using JSON web tokens, and user passwords are encrypted before being saved to the database.
 
