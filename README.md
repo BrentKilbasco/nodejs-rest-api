@@ -4,7 +4,7 @@
 
 ## 👋 Intro
 
-A RESTful API for a mock luxury car rental service, built with NodeJS. This API was built with the intention of having a website/webapp for customers to log in and use, and a separate dashboard for employees to use for data entry and rental processing. 
+This project is a RESTful API for a mock luxury car rental service, built with NodeJS. This API was built with the intention of having a website/webapp for customers to log in and use, and a separate dashboard for employees to use for data entry and rental processing. 
 
 Customers can create an account, log in and out, browse through cars by style/brand/name, view their own profile and their full user history of rentals, and can request to rent a specific car. 
 
