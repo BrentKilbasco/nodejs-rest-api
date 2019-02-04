@@ -73,4 +73,4 @@ Need further help? No worries! Just [get in touch with me directly](http://portf
 ---
 
 
-_If there's any other ideas presented in this repo, that you think worth mentioning - feel free open a pull request_ 😄  _Cheers!!_ 🍻 
+_If there's any other ideas presented in this repo, that you think worth mentioning - feel free to give me a shout or open a pull request_ 😄  _Cheers!!_ 🍻 
