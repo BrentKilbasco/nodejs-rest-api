@@ -57,7 +57,7 @@ Set up a MongoDB database deployment for dev and test environments.
 
 Create two new files in the config folder: 'devEnv.js' and 'testEnv.js', and point them to the deployments we created in step #2. 
 
-The jwtPrivatekey property can be any unique string, and is used for JSON web token signing and verifying.
+The jwtPrivateKey property can be any unique string, and is used for JSON web token signing and verifying.
 
 ```bash
 module.exports = {
