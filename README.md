@@ -50,18 +50,21 @@ git clone https://github.com/BrentKilbasco/nodejs-rest-api
 npm install
 ```
 
-#### 2. Create a dev and test config file
+#### 2. Set up MongoDB Deployments
+Set up a MongoDB database deployment for dev and test environments.
 
-Create two new files in the config folder: 'devEnv.js' and 'testEnv.js'.
+#### 3. Create a dev and test config file
+
+Create two new files in the config folder: 'devEnv.js' and 'testEnv.js', and point them to the deployments we created in step #2. 
+
+The jwtPrivateKey property can be any unique string, and is used for JSON web token signing and verifying.
+
 ```bash
 module.exports = {
   mongoURI : 'mongodb://<username>:<password><mongoDB-dev-or-test-address>',
   jwtPrivateKey: 'someUniqueKey',
 };
 ```
-
-#### 3. Set up MongoDB Deployments
-Set up a dev and test MongoDB database deployment, and then point those two new files (from step #2) to their respective databases.
 
 
 ---
