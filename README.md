@@ -73,7 +73,11 @@ module.exports = {
 
 Need further help? No worries! Just [get in touch with me directly](http://portfolio.bkilbasco.com) 😄
 
+Or one of these places:   [![alt text][1.2]][1] [![alt text][2.2]][2]
+
 ---
 
+_If there are any other ideas about, or related to, this project, that you think worth mentioning - feel free to give me a shout_ 😄  
 
-_If there's any other ideas presented in this repo, that you think worth mentioning - feel free to give me a shout or open a pull request_ 😄  _Cheers!!_ 🍻 
+#### _Cheers!!_ 🍻 
+
