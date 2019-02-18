@@ -17,7 +17,6 @@
 
 # NodeJS RESTful API
 
----
 
 ## 👋 Intro
 
@@ -48,12 +47,8 @@ Some of the libraries used for this project include:
     - Following [Airbnb's JS Linting](https://github.com/airbnb/javascript) guidelines
 - __Integration and Unit testing with Jest__
     - [Jest](https://www.npmjs.com/package/jest)
----
-
-## 📖 Docs
 
 
----
 
 ## 🚀 Getting it up and running
 
@@ -84,7 +79,6 @@ module.exports = {
 ```
 
 
----
 
 ## 👊 Further Help?
 
