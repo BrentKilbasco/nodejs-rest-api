@@ -2,4 +2,3 @@ node_modules/
 coverage/
 logs/
 devEnv.js
-testEnv.js
