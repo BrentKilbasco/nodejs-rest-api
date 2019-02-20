@@ -3,17 +3,19 @@ const winston = require( 'winston' );
 const keys = require( '../config/keys' );
 
 
-function db(){
+async function db() {
 
   // Connect to mongoDB
-  mongoose.connect( keys.mongoURI, { useNewUrlParser: true } )
-    .then( () => {
+  await mongoose.connect( keys.mongoURI, { useNewUrlParser: true } );
+  
+  const env = process.env.NODE_ENV;
+  if ( env !== 'test' ){ 
 
-      const output = `Connecting to MongoDB: ${process.env.NODE_ENV || 'dev'} environment.`;
-      console.log( output );
-      winston.info( output );
+    const output = `Connecting to MongoDB: ${env || 'dev'} environment.`;
+    console.log( output );
+    winston.info( output );
 
-    });//END then
+  }//END if
 
 }//END db
 

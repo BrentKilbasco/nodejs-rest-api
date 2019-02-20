@@ -2,6 +2,8 @@ require( '../../helpers/testprep' );
 const mongoose = require( 'mongoose' );
 const request = require( 'supertest' );
 
+require('events').EventEmitter.defaultMaxListeners = 20;
+
 const { Car } = require( '../../../models/car' );
 const { Style } = require( '../../../models/style' );
 const { Brand } = require( '../../../models/brand' );
@@ -27,8 +29,8 @@ describe( endpoint, async () => {
 
   beforeEach( async () => {
 
-    // Start server before each test
-    server = require( '../../../index' );
+    // Open/start server before each test
+    server = await require( '../../../startup/startup' ).init();
 
     // Create a customer
     //
@@ -122,6 +124,7 @@ describe( endpoint, async () => {
     
     // Close server after each test
     await server.close();
+    await mongoose.disconnect();
 
   });//END afterEach
 

@@ -3,6 +3,8 @@ const mongoose = require( 'mongoose' );
 const request = require( 'supertest' );
 const jwt = require( 'jsonwebtoken' );
 
+require('events').EventEmitter.defaultMaxListeners = 20;
+
 const validateObjectId = require( '../../../middleware/validateObjectId' );
 const { Customer } = require( '../../../models/customer' );
 const { Employee } = require( '../../../models/employee' );
@@ -27,8 +29,8 @@ describe( endpoint, () => {
 
     beforeEach( async () => {
 
-      // Start server before each test
-      server = require( '../../../index' );
+      // Open/start server before each test
+      server = await require( '../../../startup/startup' ).init();
 
       customer = {
         name: customerName, 
@@ -50,6 +52,7 @@ describe( endpoint, () => {
       // Close server after each test
       await Customer.collection.deleteMany();
       await server.close();
+      await mongoose.disconnect();
     });//END afterEach
 
 
@@ -110,19 +113,12 @@ describe( endpoint, () => {
     let employeeName = 'jan jen';
     let employeeEmail = 'janje@hotfemale.com';
     let employeePassword = '123456';
-
-    const manager = {
-      name: 'toot', 
-      email: 'toot@tootsville.com',
-      password: 'tootsalot',
-      isAdmin: true, 
-    };
-
+    
 
     beforeEach( async () => {
 
-      // Start server before each test
-      server = require( '../../../index' );
+      // Open/start server before each test
+      server = await require( '../../../startup/startup' ).init();
 
       employee = {
         name: employeeName, 
@@ -143,6 +139,7 @@ describe( endpoint, () => {
       // Close server after each test
       await Employee.collection.deleteMany();
       await server.close();
+      await mongoose.disconnect();
     });//END afterEach
 
 

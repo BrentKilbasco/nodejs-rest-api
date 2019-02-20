@@ -2,6 +2,9 @@ require( '../../helpers/testprep' );
 const mongoose = require( 'mongoose' );
 const request = require( 'supertest' );
 
+require('events').EventEmitter.defaultMaxListeners = 20;
+
+
 const { Brand } = require( '../../../models/brand' );
 const { Employee } = require( '../../../models/employee' );
 
@@ -17,8 +20,8 @@ describe( '/api/v1/brands', () => {
 
   beforeEach( async () => {
     
-    // Start server before each test
-    server = require( '../../../index' );
+    // Open/start server before each test
+    server = await require( '../../../startup/startup' ).init();
     
     brand1 = await new Brand({
       name: 'brand1', 
@@ -38,6 +41,7 @@ describe( '/api/v1/brands', () => {
     // Close server after each test
     await Brand.collection.deleteMany();
     await server.close();
+    await mongoose.disconnect();
   
   });//END afterEach
 

@@ -1,5 +1,6 @@
 require( '../../helpers/testprep' );
 const request = require( 'supertest' );
+const mongoose = require( 'mongoose' );
 
 const { Employee } = require( '../../../models/employee' );
 const { Customer } = require( '../../../models/customer' );
@@ -14,14 +15,15 @@ let server = null;
 describe( 'manager/admin employee auth middleware - integration', () => {
 
 
-  beforeEach( () => { 
+  beforeEach( async () => { 
     // Open/start server before each test
-    server = require( '../../../index' );
+    server = await require( '../../../startup/startup' ).init();
   });
 
   afterEach( async () => { 
     // Close server after each test
     await server.close();
+    await mongoose.disconnect();
   });
 
 

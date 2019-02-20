@@ -1,6 +1,6 @@
 require( '../../helpers/testprep' );
 const request = require( 'supertest' );
-
+const mongoose = require( 'mongoose' );
 const { Customer } = require( '../../../models/customer' );
 
 
@@ -12,17 +12,19 @@ let server = null;
 describe( 'customer auth middleware - integration', () => {
 
 
-  beforeEach( () => { 
+  beforeEach( async () => { 
     // Open/start server before each test
-    server = require( '../../../index' );
+    server = await require( '../../../startup/startup' ).init();
   });
 
   afterEach( async () => { 
     // Close server after each test
     await server.close();
+    await mongoose.disconnect();
   });
 
-
+  
+  
   const exec = (token) => {
     return request( server )
       .get( '/api/v1/rentals' )

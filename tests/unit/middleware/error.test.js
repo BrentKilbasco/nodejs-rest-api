@@ -1,5 +1,7 @@
 require( '../../helpers/testprep' );
 
+const mongoose = require( 'mongoose' );
+
 const errHandler = require( '../../../middleware/error' );
 
 let server = null;
@@ -8,14 +10,15 @@ let server = null;
 describe( 'error middleware - unit', () => {
 
 
-  beforeEach( () => { 
+  beforeEach( async () => { 
     // Open/start server before each test
-    server = require( '../../../index' );
+    server = await require( '../../../startup/startup' ).init();
   });
 
   afterEach( async () => { 
     // Close server after each test
     await server.close();
+    await mongoose.disconnect();
   });
 
 

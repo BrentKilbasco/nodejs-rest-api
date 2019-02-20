@@ -2,6 +2,8 @@ require( '../../helpers/testprep' );
 const mongoose = require( 'mongoose' );
 const request = require( 'supertest' );
 
+require('events').EventEmitter.defaultMaxListeners = 20;
+
 const { Style } = require( '../../../models/style' );
 const { Customer } = require( '../../../models/customer' );
 const { Employee } = require( '../../../models/employee' );
@@ -15,8 +17,8 @@ describe( '/api/v1/customers', () => {
 
 
   beforeEach( async () => {
-    // Start server before each test
-    server = require( '../../../index' );
+    // Open/start server before each test
+    server = await require( '../../../startup/startup' ).init();
     await Customer.collection.insertOne({
       name: 'joe bob', 
       email: 'joebob@hotmale.com',
@@ -30,6 +32,7 @@ describe( '/api/v1/customers', () => {
     // Close server after each test
     await Customer.collection.deleteMany();
     await server.close();
+    await mongoose.disconnect();
   });
 
 
